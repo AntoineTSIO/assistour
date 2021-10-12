@@ -3,8 +3,6 @@ CREATE DATABASE Assistour ;
 
 USE Assistour ;
 
-
-        
 CREATE TABLE Adhérent
 (
   numAdherent        INTEGER      NOT NULL,
@@ -38,7 +36,7 @@ CREATE TABLE EtapeRapatriement
   villeArrive     VARCHAR(200) NULL    ,
   horaireDepart   DATETIME     NULL    ,
   horaireArrive   DATETIME     NULL    ,
-  num             INT          NOT NULL,
+  num             INTEGER      NOT NULL,
   idCompagnie     INTEGER      NOT NULL,
   idModeTransport INTEGER      NOT NULL,
   PRIMARY KEY (numOrdre)
@@ -71,7 +69,8 @@ CREATE TABLE Hotels
 CREATE TABLE loger
 (
   numHotel INTEGER NOT NULL,
-  num      INT     NOT NULL
+  num      INTEGER NOT NULL,
+  nbNuit   INTEGER NOT NULL
 );
 
 CREATE TABLE ModeTransport
@@ -89,7 +88,7 @@ CREATE TABLE proposer
 
 CREATE TABLE Sinistre
 (
-  num             INT          NOT NULL,
+  num             INTEGER      NOT NULL,
   date            DATE         NULL    ,
   heure           TIME         NULL    ,
   cause           VARCHAR(200) NULL    ,
@@ -193,6 +192,3 @@ ALTER TABLE EtapeRapatriement
   ADD CONSTRAINT FK_ModeTransport_TO_EtapeRapatriement
     FOREIGN KEY (idModeTransport)
     REFERENCES ModeTransport (idModeTransport);
-
-        
-      
